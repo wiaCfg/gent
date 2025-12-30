@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/vars.css?v=2">
+  <link rel="stylesheet" href="./css/reset.css?v=2">
+  <link rel="stylesheet" href="./css/vsl2.css?v=2">
+  <title>Gentlyx — VSL2 Soul Selection</title>
+</head>
+<body class="vsl2-page">
+  <div class="vsl2-container">
+    <!-- Background ellipses -->
+    <div class="vsl2-ellipse vsl2-ellipse--origin-right"></div>
+    <div class="vsl2-ellipse vsl2-ellipse--origin-left"></div>
+
+    <!-- Header with progress bar -->
+    <header class="vsl2-header">
+      <div class="vsl2-logo-wrapper">
+        <div class="vsl2-logo" aria-label="Gentlyx"></div>
+      </div>
+      <div class="vsl2-progress">
+        <div class="vsl2-step vsl2-step--completed">
+          <div class="vsl2-step-circle vsl2-step-circle--completed">1</div>
+          <span class="vsl2-step-label vsl2-step-label--completed">Style</span>
+        </div>
+        <div class="vsl2-progress-line vsl2-progress-line--completed"></div>
+        <div class="vsl2-step vsl2-step--completed">
+          <div class="vsl2-step-circle vsl2-step-circle--completed">2</div>
+          <span class="vsl2-step-label vsl2-step-label--completed">Origin</span>
+        </div>
+        <div class="vsl2-progress-line vsl2-progress-line--completed"></div>
+        <div class="vsl2-step vsl2-step--completed">
+          <div class="vsl2-step-circle vsl2-step-circle--completed">3</div>
+          <span class="vsl2-step-label vsl2-step-label--completed">Body</span>
+        </div>
+        <div class="vsl2-progress-line vsl2-progress-line--completed"></div>
+        <div class="vsl2-step vsl2-step--completed">
+          <div class="vsl2-step-circle vsl2-step-circle--completed">4</div>
+          <span class="vsl2-step-label vsl2-step-label--completed">Face</span>
+        </div>
+        <div class="vsl2-progress-line vsl2-progress-line--completed"></div>
+        <div class="vsl2-step vsl2-step--active">
+          <div class="vsl2-step-circle vsl2-step-circle--active">5</div>
+          <span class="vsl2-step-label vsl2-step-label--active">Soul</span>
+        </div>
+        <div class="vsl2-progress-line"></div>
+        <div class="vsl2-step">
+          <div class="vsl2-step-circle">6</div>
+          <span class="vsl2-step-label">Summary</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="vsl2-main">
+      <!-- Choose voice section -->
+      <section class="vsl2-section">
+        <h2 class="vsl2-title">Choose voice</h2>
+        <div class="vsl2-soul-grid vsl2-soul-grid--voice">
+          <!-- Cute -->
+          <div class="vsl2-soul-voice-wrapper">
+            <div class="vsl2-soul-card vsl2-soul-card--voice" data-voice="cute">
+              <div class="vsl2-soul-player">
+                <button class="vsl2-soul-play-btn" type="button">
+                  <img class="vsl2-soul-play-icon" src="./assets/soul-play-icon.svg" alt="Play" />
+                </button>
+                <div class="vsl2-soul-waveform">
+                  <img class="vsl2-soul-waveform-image" src="./assets/soul-sound-frame.svg" alt="Waveform" />
+                </div>
+              </div>
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--outside">Cute</p>
+          </div>
+          <!-- Teen -->
+          <div class="vsl2-soul-voice-wrapper">
+            <div class="vsl2-soul-card vsl2-soul-card--voice vsl2-soul-card--selected" data-voice="teen">
+              <div class="vsl2-soul-player">
+                <button class="vsl2-soul-play-btn" type="button">
+                  <img class="vsl2-soul-play-icon" src="./assets/soul-play-icon.svg" alt="Play" />
+                </button>
+                <div class="vsl2-soul-waveform">
+                  <img class="vsl2-soul-waveform-image" src="./assets/soul-sound-frame.svg" alt="Waveform" />
+                </div>
+              </div>
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--outside">Teen</p>
+          </div>
+          <!-- Soft -->
+          <div class="vsl2-soul-voice-wrapper">
+            <div class="vsl2-soul-card vsl2-soul-card--voice" data-voice="soft">
+              <div class="vsl2-soul-player">
+                <button class="vsl2-soul-play-btn" type="button">
+                  <img class="vsl2-soul-play-icon" src="./assets/soul-play-icon.svg" alt="Play" />
+                </button>
+                <div class="vsl2-soul-waveform">
+                  <img class="vsl2-soul-waveform-image" src="./assets/soul-sound-frame.svg" alt="Waveform" />
+                </div>
+              </div>
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--outside">Soft</p>
+          </div>
+          <!-- Dominant -->
+          <div class="vsl2-soul-voice-wrapper">
+            <div class="vsl2-soul-card vsl2-soul-card--voice" data-voice="dominant">
+              <div class="vsl2-soul-player">
+                <button class="vsl2-soul-play-btn" type="button">
+                  <img class="vsl2-soul-play-icon" src="./assets/soul-play-icon.svg" alt="Play" />
+                </button>
+                <div class="vsl2-soul-waveform">
+                  <img class="vsl2-soul-waveform-image" src="./assets/soul-sound-frame.svg" alt="Waveform" />
+                </div>
+              </div>
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--outside">Dominant</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Choose relationships section -->
+      <section class="vsl2-section">
+        <h2 class="vsl2-title">Choose relationships</h2>
+        <div class="vsl2-soul-grid vsl2-soul-grid--relationships">
+          <!-- Step sister -->
+          <div class="vsl2-soul-card vsl2-soul-card--relationship" data-relationship="step-sister">
+            <div class="vsl2-soul-icon-wrapper">
+              <img class="vsl2-soul-icon" src="./assets/relationship-step-sister.svg" alt="Step sister" />
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--inactive">Step sister</p>
+          </div>
+          <!-- Step mom -->
+          <div class="vsl2-soul-card vsl2-soul-card--relationship" data-relationship="step-mom">
+            <div class="vsl2-soul-icon-wrapper">
+              <img class="vsl2-soul-icon" src="./assets/relationship-step-mom.svg" alt="Step mom" />
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--inactive">Step mom</p>
+          </div>
+          <!-- Girlfriend -->
+          <div class="vsl2-soul-card vsl2-soul-card--relationship vsl2-soul-card--selected" data-relationship="girlfriend">
+            <div class="vsl2-soul-icon-wrapper">
+              <img class="vsl2-soul-icon" src="./assets/relationship-girlfriend.svg" alt="Girlfriend" />
+            </div>
+            <p class="vsl2-soul-label">Girlfriend</p>
+          </div>
+          <!-- Fuck Buddy -->
+          <div class="vsl2-soul-card vsl2-soul-card--relationship" data-relationship="fuck-buddy">
+            <div class="vsl2-soul-icon-wrapper">
+              <img class="vsl2-soul-icon" src="./assets/relationship-fuck-buddy.svg" alt="Fuck Buddy" />
+            </div>
+            <p class="vsl2-soul-label vsl2-soul-label--inactive">Fuck Buddy</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Navigation buttons -->
+    <div class="vsl2-navigation">
+      <button class="vsl2-btn vsl2-btn--back" type="button">Back</button>
+      <button class="vsl2-btn vsl2-btn--next" type="button">Next</button>
+    </div>
+  </div>
+
+  <script src="./vsl2.js?v=2"></script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+
+:root {
+  /* Colors */
+  --color-bg: #141414;
+  --color-bg-dark: #0f0f0f;
+  --color-panel: #1c1c1c;
+  --color-panel-dark: #292929;
+  --color-border: #292929;
+  --color-border-soft: #1f1f1f;
+  --color-border-light: #e7e7e7;
+  --color-white: #ffffff;
+  --color-neutral-10: #f5f5f5;
+  --color-text: var(--color-white);
+  --color-text-dark: #362533;
+  --color-text-secondary: #8b8b8b;
+  --color-text-disabled: #616161;
+  --color-link: #fe7bb6;
+  --color-accent: #fe7bb6;
+  --color-accent-blue: #6691ff;
+  --color-accent-selected: rgba(60, 43, 50, 1);
+  --color-toggle-inactive: #4c4c4c;
+  --color-success: #A0D03A;
+  --color-page-bg: #050505;
+  --color-surface-elevated: rgba(20, 20, 24, 0.96);
+  --color-surface-outline: rgba(255, 255, 255, 0.04);
+  --color-panel-outline: rgba(255, 255, 255, 0.1);
+
+  /* Effects */
+  --gradient-primary: linear-gradient(180deg, rgba(255, 128, 191, 1) 0%, rgba(238, 67, 153, 1) 100%);
+  --gradient-badge: linear-gradient(56.48deg, #6691FF 10.47%, #BD2166 144.21%);
+  
+  /* Z-index */
+  --z-header: 10;
+  --z-overlay: 20;
+  --z-content: 2;
+  --z-base: 1;
+  --z-behind: -1;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+
+  /* Typography */
+  --font-heading-family: "Nunito-ExtraBold", sans-serif;
+  --font-heading-size: 32px;
+  --font-heading-line: 38px;
+  --font-heading-weight: 800;
+
+  --font-body-family: "Inter-Regular", sans-serif;
+  --font-ui-family: "Rubik-Regular", sans-serif;
+  --font-ui-medium-family: "Rubik-Medium", sans-serif;
+
+  --font-size-xs: 12px;
+  --line-height-xs: 14px;
+  --font-size-sm: 14px;
+  --line-height-sm: 18px;
+  --font-size-md: 16px;
+  --line-height-md: 22px;
+  --line-height-md-tight: 18px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 800;
+
+  /* Inputs */
+  --color-input-bg: #0f0f0f;
+  --color-input-border: var(--color-border-soft);
+}
+

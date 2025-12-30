@@ -1,0 +1,44 @@
+a,
+button,
+input,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  background: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+input {
+  outline: none;
+  font: inherit;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.9);
+}

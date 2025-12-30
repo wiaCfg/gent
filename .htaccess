@@ -1,0 +1,64 @@
+# ============================================
+# ОПТИМИЗАЦИЯ КЕШИРОВАНИЯ СТАТИЧЕСКИХ ФАЙЛОВ
+# ============================================
+
+# Кеширование статических файлов на 1 год
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Изображения - 1 год
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  
+  # CSS и JavaScript - 1 год
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  
+  # HTML - 1 час (обновляется чаще)
+  ExpiresByType text/html "access plus 1 hour"
+  
+  # Шрифты - 1 год
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+</IfModule>
+
+# Cache-Control заголовки для оптимального кеширования
+<IfModule mod_headers.c>
+  # Статические ресурсы - immutable (не проверять обновления)
+  <FilesMatch "\.(webp|svg|jpg|jpeg|png|css|js|woff2|woff|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # HTML - обычный кеш на 1 час
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+# ============================================
+# СЖАТИЕ GZIP ДЛЯ УСКОРЕНИЯ ЗАГРУЗКИ
+# ============================================
+
+<IfModule mod_deflate.c>
+  # Сжатие текстовых файлов
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============================================
+# БЕЗОПАСНОСТЬ
+# ============================================
+
+# Запретить доступ к служебным файлам
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
