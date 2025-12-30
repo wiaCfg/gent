@@ -14,7 +14,7 @@
   --vsl2-transition: all 0.3s ease;
   --vsl2-shadow-hover: 0 8px 24px rgba(254, 123, 182, 0.3);
   --vsl2-gradient-selected: linear-gradient(180deg, rgba(255, 97, 177, 1) 0%, rgba(31, 31, 31, 0) 100%),
-                              linear-gradient(90deg, rgba(31, 31, 31, 1) 0%, rgba(31, 31, 31, 1) 100%);
+    linear-gradient(90deg, rgba(31, 31, 31, 1) 0%, rgba(31, 31, 31, 1) 100%);
   --vsl2-gradient-overlay: linear-gradient(to bottom, rgba(15, 15, 15, 0) 0%, rgba(15, 15, 15, 0) 25%, #0f0f0f 100%);
 }
 
@@ -70,6 +70,21 @@
   filter: blur(222px);
   border-radius: 300px;
   transform: none;
+  will-change: transform;
+}
+
+/* Disable heavy blur on mobile for performance */
+@media (max-width: 1024px) {
+
+  .vsl2-ellipse--top-left,
+  .vsl2-ellipse--origin-left,
+  .vsl2-ellipse--origin-right,
+  .vsl2-ellipse--left,
+  .vsl2-ellipse--right {
+    filter: none !important;
+    opacity: 0.15;
+    background: radial-gradient(circle, rgba(254, 123, 182, 0.3) 0%, transparent 70%);
+  }
 }
 
 .vsl2-ellipse--origin-left {
@@ -1069,7 +1084,7 @@
   transition: var(--vsl2-transition);
 }
 
-.vsl2-soul-card--selected + .vsl2-soul-label--outside,
+.vsl2-soul-card--selected+.vsl2-soul-label--outside,
 .vsl2-soul-label--active {
   opacity: 1;
 }

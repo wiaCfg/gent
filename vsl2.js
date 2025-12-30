@@ -166,6 +166,7 @@
   /**
    * Shared: Initialize style-based image switching
    * Used in: Origin, Body, Face pages
+   * Optimized: Only loads images for selected style to reduce memory usage on mobile
    */
   function initStyleSwitching() {
     const selectedStyle = sessionStorage.getItem(STORAGE.STYLE) || 'realistic';
@@ -174,13 +175,45 @@
     const realisticImages = document.querySelectorAll('.vsl2-ethnicity-image--realistic, .vsl2-body-image--realistic, .vsl2-face-image--realistic');
     const animeImages = document.querySelectorAll('.vsl2-ethnicity-image--anime, .vsl2-body-image--anime, .vsl2-face-image--anime');
 
+    // Helper: Check if img has a valid src attribute (not empty, not page URL)
+    function hasValidSrc(img) {
+      return img.hasAttribute('src') && img.getAttribute('src') && img.getAttribute('src') !== '';
+    }
+
     // Update button styles based on style selection
+    // Also handle data-src for lazy loading - only load images for active style
     if (selectedStyle === 'anime') {
-      realisticImages.forEach(img => img.style.display = 'none');
-      animeImages.forEach(img => img.style.display = 'block');
+      realisticImages.forEach(img => {
+        img.style.display = 'none';
+        // Store src in data-src and remove to free memory
+        if (hasValidSrc(img)) {
+          img.dataset.src = img.getAttribute('src');
+          img.removeAttribute('src');
+        }
+      });
+      animeImages.forEach(img => {
+        img.style.display = 'block';
+        // Load from data-src if available
+        if (img.dataset.src && !hasValidSrc(img)) {
+          img.src = img.dataset.src;
+        }
+      });
     } else {
-      realisticImages.forEach(img => img.style.display = 'block');
-      animeImages.forEach(img => img.style.display = 'none');
+      realisticImages.forEach(img => {
+        img.style.display = 'block';
+        // Load from data-src if available
+        if (img.dataset.src && !hasValidSrc(img)) {
+          img.src = img.dataset.src;
+        }
+      });
+      animeImages.forEach(img => {
+        img.style.display = 'none';
+        // Store src in data-src and remove to free memory
+        if (hasValidSrc(img)) {
+          img.dataset.src = img.getAttribute('src');
+          img.removeAttribute('src');
+        }
+      });
     }
   }
 
@@ -465,13 +498,16 @@
     function handleTouchStart(e) {
       isDragging = true;
       updateSlider(getAgeFromPosition(e.touches[0].clientX));
-      e.preventDefault();
+      // Don't prevent default to allow smooth scrolling on iOS
     }
 
     function handleTouchMove(e) {
       if (!isDragging) return;
       updateSlider(getAgeFromPosition(e.touches[0].clientX));
-      e.preventDefault();
+      // Only prevent default when actively dragging the slider
+      if (isDragging) {
+        e.preventDefault();
+      }
     }
 
     sliderTrack.addEventListener('mousedown', handleMouseDown);
@@ -480,10 +516,11 @@
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mouseleave', handleMouseUp);
 
-    sliderTrack.addEventListener('touchstart', handleTouchStart);
-    sliderThumb.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchmove', handleTouchMove);
-    document.addEventListener('touchend', handleMouseUp);
+    // Use passive: false only for touchmove to allow preventDefault when dragging
+    sliderTrack.addEventListener('touchstart', handleTouchStart, { passive: true });
+    sliderThumb.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('touchend', handleMouseUp, { passive: true });
 
     updateSlider(currentAge);
   }
