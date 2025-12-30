@@ -175,44 +175,24 @@
     const realisticImages = document.querySelectorAll('.vsl2-ethnicity-image--realistic, .vsl2-body-image--realistic, .vsl2-face-image--realistic');
     const animeImages = document.querySelectorAll('.vsl2-ethnicity-image--anime, .vsl2-body-image--anime, .vsl2-face-image--anime');
 
-    // Helper: Check if img has a valid src attribute (not empty, not page URL)
-    function hasValidSrc(img) {
-      return img.hasAttribute('src') && img.getAttribute('src') && img.getAttribute('src') !== '';
-    }
-
-    // Update button styles based on style selection
-    // Also handle data-src for lazy loading - only load images for active style
+    // Simple display switching - no src manipulation to avoid flickering
     if (selectedStyle === 'anime') {
       realisticImages.forEach(img => {
         img.style.display = 'none';
-        // Store src in data-src and remove to free memory
-        if (hasValidSrc(img)) {
-          img.dataset.src = img.getAttribute('src');
-          img.removeAttribute('src');
-        }
       });
       animeImages.forEach(img => {
         img.style.display = 'block';
-        // Load from data-src if available
-        if (img.dataset.src && !hasValidSrc(img)) {
+        // Load from data-src if needed
+        if (img.dataset.src && !img.src) {
           img.src = img.dataset.src;
         }
       });
     } else {
       realisticImages.forEach(img => {
         img.style.display = 'block';
-        // Load from data-src if available
-        if (img.dataset.src && !hasValidSrc(img)) {
-          img.src = img.dataset.src;
-        }
       });
       animeImages.forEach(img => {
         img.style.display = 'none';
-        // Store src in data-src and remove to free memory
-        if (hasValidSrc(img)) {
-          img.dataset.src = img.getAttribute('src');
-          img.removeAttribute('src');
-        }
       });
     }
   }
