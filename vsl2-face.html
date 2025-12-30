@@ -7,12 +7,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./css/vars.css?v=2">
-  <link rel="stylesheet" href="./css/reset.css?v=2">
-  <link rel="stylesheet" href="./css/vsl2.css?v=2">
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
+  <link rel="preload" href="./css/vsl2-combined.css?v=3" as="style">
+  <style>
+    :root {
+      --color-bg: #141414;
+      --color-bg-dark: #0f0f0f;
+      --color-panel: #1c1c1c;
+      --color-white: #fff;
+      --color-text: var(--color-white);
+      --color-accent: #fe7bb6;
+      --color-page-bg: #050505;
+      --gradient-primary: linear-gradient(180deg, rgba(255, 128, 191, 1) 0%, rgba(238, 67, 153, 1) 100%);
+      --z-header: 10;
+      --transition-fast: .2s ease;
+      --radius-md: 16px;
+      --font-heading-family: "Nunito", sans-serif;
+      --font-heading-size: 32px;
+      --font-heading-weight: 800;
+      --font-body-family: "Inter", sans-serif;
+      --font-size-md: 16px;
+      --line-height-md: 22px;
+      --weight-regular: 400;
+      --weight-semibold: 600
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+      -webkit-font-smoothing: antialiased
+    }
+
+    body {
+      background: rgba(0, 0, 0, .9);
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body-family);
+      color: var(--color-text)
+    }
+
+    .vsl2-page {
+      min-height: 100vh;
+      background: var(--color-page-bg);
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start
+    }
+
+    .vsl2-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column
+    }
+
+    .vsl2-header {
+      position: relative;
+      z-index: var(--z-header);
+      margin-bottom: 48px
+    }
+
+    .vsl2-title {
+      font-family: var(--font-heading-family);
+      font-size: var(--font-heading-size);
+      font-weight: var(--font-heading-weight);
+      color: var(--color-white);
+      text-align: center;
+      margin-bottom: 32px
+    }
+  </style>
+  <link rel="stylesheet" href="./css/vsl2-combined.css?v=3" media="print" onload="this.media='all'">
   <title>Gentlyx — VSL2 Face Selection</title>
 </head>
 
